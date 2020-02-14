@@ -1,4 +1,6 @@
-Qucik & Dirty hack for Veeam ZFS support
+# Qucik & Dirty hack for Veeam ZFS support
+
+## Unfortunately, I can’t guarantee your use of this solution will be free from error. I take no responsibility or liability, so far as legally possible, for any damages.
 
 Background: Veeam support for ZFS(on LINUX) is broken in newest version (in older version too).
 
