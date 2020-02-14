@@ -1,0 +1,18 @@
+--- rc.S	2020-02-14 08:52:07.492456664 +0100
++++ rc.S.new	2020-02-14 08:52:23.752814428 +0100
+@@ -44,6 +44,15 @@
+     exit 1
+ fi
+ 
++echo "##########################################################################"
++modprobe -v hv_netvsc
++modprobe -v hv_balloon
++modprobe -v hv_utils
++modprobe -v hv_storvsc
++modprobe -v zfs
++sleep 4
++
++
+ # Setting up network
+ if ! /etc/init.d/network/network-up.sh $PATH_TO_CONFIG_FILE; then
+     critical_error "Unable to setting up network, exiting"

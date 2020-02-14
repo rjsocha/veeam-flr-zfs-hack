@@ -1,0 +1,56 @@
+Qucik & Dirty hack for Veeam ZFS support
+
+Background: Veeam support for ZFS(on LINUX) is broken in newest version (in older version too).
+
+VeemFLR doesn't support newer ZFS verions. Backup restoration works OK. But File Level Resotre does not.
+
+
+ENV: Veeam Backup & Replication 9.5 Update 4 and Hyper-V (Tested only with Veeam version 9.5.4.2866)
+
+This is only for Hyper-V integration (do you need this for VMware? contact me please ;)
+
+With standard VeemVLR (helper vm appliance):
+
+![img1](https://raw.githubusercontent.com/rjsocha/veeam-flr-zfs-hack/master/img/flr1.png)
+
+![img1](https://raw.githubusercontent.com/rjsocha/veeam-flr-zfs-hack/master/img/helper_vm1.png)
+
+
+
+You will need *hvproxy.iso* from: c:\Program Files\Veeam\Backup and Replication\Backup\LiveCD. Backup this file to other location.
+
+SHA of hvproxy.iso
+```
+sha256sum hvproxy.iso
+4fcecbb22c3279bd53212dd735bc8dc06bd840d20ac1771a643ad230314518bc  hvproxy.iso
+```
+
+Make sure you are running newst Ubuntu kernel (tested with 4.15.0-76-generic)
+
+```
+apt-get update 
+apt-get dist-upgrade -y
+# reboot to make sure you are running new kernel
+reboot 
+```
+
+
+```
+# Install tools
+./install_xorrio.sh
+
+# Extract ISO
+./extract_iso.sh
+
+# Extract FS
+./extract_fs.sh
+
+# Patch ISO
+./create_zfs_patch.sh
+
+# Create new initrd
+./create_fs.sh
+
+# Create new ISO
+./create_iso.sh
+```
