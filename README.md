@@ -13,8 +13,28 @@ With standard VeemVLR (helper vm appliance):
 
 ![img1](https://raw.githubusercontent.com/rjsocha/veeam-flr-zfs-hack/master/img/flr1.png)
 
+No support for newer ZFS:
+
 ![img1](https://raw.githubusercontent.com/rjsocha/veeam-flr-zfs-hack/master/img/helper_vm1.png)
 
+With patched ISO:
+
+![img1](https://raw.githubusercontent.com/rjsocha/veeam-flr-zfs-hack/master/img/flr2.png)
+
+ZFS in now supported:
+
+![img1](https://raw.githubusercontent.com/rjsocha/veeam-flr-zfs-hack/master/img/helper_vm2.png)
+
+How this works?
+
+This a hack (and very dirty one - but it's took 1h to prepare&test).
+This create new ISO for FLR with current kernel & ZFS toolchain from Ubuntu. It's replace VeemFLR kernel and adds newer ZFS tools).
+No other parts were changed.
+
+Do you need to know more? Message me.
+
+
+This is only tested and supported on Ubuntu 18.04. (you need this system to prperare new ISO).
 
 
 You will need *hvproxy.iso* from: c:\Program Files\Veeam\Backup and Replication\Backup\LiveCD. Backup this file to other location.
@@ -34,7 +54,7 @@ apt-get dist-upgrade -y
 reboot 
 ```
 
-
+You need to run below command as *root*
 ```
 # Install tools
 ./install_xorrio.sh
@@ -54,3 +74,6 @@ reboot
 # Create new ISO
 ./create_iso.sh
 ```
+
+After that you will have new file *hvproxy_zfs.iso*. Copy this file to Veem server to c:\Program Files\Veeam\Backup and Replication\Backup\LiveCD as hvproxy.iso.
+
