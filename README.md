@@ -58,6 +58,9 @@ reboot
 
 You need to run below command as *root*
 ```
+# Check ISO
+./check_iso.sh
+
 # Install tools
 ./install_xorrio.sh
 
