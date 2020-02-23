@@ -14,3 +14,8 @@ rsync -aq /lib/modules/$(uname -r) root/lib/modules
 rsync -av root/ ../initrd/
 cd ../initrd/etc/init.d
 patch <../../../rcS.patch
+cd ../..
+for n in libnvpair libzfs_core libzpool libzfs libuutil
+do
+	rm lib/x86_64-linux-gnu/${n}*
+done
