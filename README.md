@@ -6,7 +6,7 @@
 
 Background: Veeam support for ZFS(on LINUX) is broken in newest version (in older version too).
 
-VeemFLR doesn't support newer ZFS verions. Backup restoration works OK. But File Level Resotre does not.
+VeemFLR doesn't support newer ZFS verions. Backup restoration works OK. But File Level Restore does not.
 
 
 ENV: Veeam Backup & Replication 9.5 Update 4 and Hyper-V (Tested only with Veeam version 9.5.4.2866)
